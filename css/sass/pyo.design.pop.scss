@@ -1,0 +1,127 @@
+@charset "utf-8";
+/*
+write : gray
+since : 2020-06-26
+*/
+$border-color-d1 : #ddd;
+$pointe-color-d1 : #1b4d8e;
+
+.pyo-pop-open{
+	overflow: hidden;
+}
+
+.pyo-design-pop{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba($color: #000000, $alpha: 0.5);
+	opacity: 0;
+	display: none;
+	transition: opacity 0.3s ease-in-out;
+	&.block{
+		display: block;
+	}
+	&.show{
+		opacity: 1;
+	}
+	.left{
+		text-align: left;
+	}
+	.center{
+		text-align: center;
+	}
+	section, article, div, h1, h2, h3, h4, h5, h6, p, span, a, img, button, input, select, textarea{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	button{
+		cursor: pointer;
+		outline: 0;
+	}
+	.flex-box{
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	.pop-conents-wrap{
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		width: 100%;
+		line-height: 1.5;
+		margin: auto;
+		&.basic{
+			max-width: 400px;
+			background-color: #fff;
+			.pop-title{
+				position: relative;
+				padding: 10px 15px;
+				border-bottom: 1px solid $border-color-d1;
+				h1{
+					font-size: 20px;
+				}
+			}
+			.pop-contents{
+				padding: 30px 15px;
+			}
+			.close-x{
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 50px;
+				height: 50px;
+				border: none;
+				background-color: transparent;
+				i{
+					overflow: hidden;
+					border: 0;
+					position: absolute;
+					width: 1px;
+					height: 1px;
+					clip: rect(1px, 1px, 1px, 1px);
+					clip-path: inset(50%);
+				}
+				&::before,
+				&::after{
+					content: '';
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					width: 50%;
+					height: 1px;
+					background-color: #000;
+				}
+				&::before{
+					transform: translate(-50%) rotate(-45deg);
+				}
+				&::after{
+					transform: translate(-50%) rotate(45deg);
+				}
+			}
+			.bt-wrap{
+				margin-top: auto;
+				padding: 5px;
+				display: flex;
+				> div{
+					flex: 1;
+					padding: 5px;
+					button{
+						width: 100%;
+						padding: 10px 0;
+						border: 1px solid $pointe-color-d1;
+						background-color: #fff;
+						&.blue{
+							background-color: $pointe-color-d1;
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+	}
+}
