@@ -87,6 +87,7 @@ let pyoDesignPop = new function(){
 		tTarget.classList.add( 'block' );
 		setTimeout(function(){
 			tTarget.classList.add( 'show' );
+			tButton[0].focus();
 		},1);
 	}
 	this.closePop = function(assOpt){
