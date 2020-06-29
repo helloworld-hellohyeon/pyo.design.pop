@@ -10,6 +10,7 @@ let pyoDesignPop = new function(){
 			padding : '10px', // css padding
 			maxWidth : null, // null, number - max-width
 			minHetight : null, // null, number - min-height
+			remove : false, // false, true - remove
 			closeBt : false, // false, true - close-x bt
 			title : null, // null, string - title
 			titleAlign : 'left', // left, center - title text-align
@@ -60,10 +61,10 @@ let pyoDesignPop = new function(){
 	this.openPop = function(useOpt){
 		let t = this;
 		let assOpt = this.opt(useOpt);
-		let tTarget, closeBt, okBt, cancaleBt;
 
-		if(!tTarget){
+		if(!document.querySelector('#'+assOpt.targetId)){
 			t.markup(assOpt);
+			let tTarget, closeBt, okBt, cancaleBt;
 			tTarget = document.querySelector('#'+assOpt.targetId);
 			tButton = tTarget.querySelectorAll('button');
 			closeBt = tTarget.querySelector('.close-x');
@@ -84,21 +85,26 @@ let pyoDesignPop = new function(){
 			});
 		}
 		document.querySelector('html').classList.add( 'pyo-pop-open' );
-		tTarget.classList.add( 'block' );
+		document.querySelector('#'+assOpt.targetId).classList.add( 'block' );
 		setTimeout(function(){
-			tTarget.classList.add( 'show' );
+			document.querySelector('#'+assOpt.targetId).classList.add( 'show' );
 			tButton[0].focus();
 		},1);
 	}
 	this.closePop = function(assOpt){
 		let tTarget = document.querySelector('#'+assOpt.targetId);
+		let endPop = true;
 
 		tTarget.classList.remove( 'show' );
 		let transitionendEvent  = function(e) {
-			tTarget.classList.remove( 'block' );
-			// tTarget.remove();
+			if(assOpt.remove){
+				tTarget.remove();
+			} else {
+				tTarget.classList.remove( 'block' );
+				endPop = document.querySelector('.pyo-design-pop').classList.contains('show');
+			}
 			e.target.removeEventListener('transitionend', transitionendEvent);
-			if(!document.querySelector('.pyo-design-pop').classList.contains('show')){
+			if(!endPop){
 				document.querySelector('html').classList.remove( 'pyo-pop-open' );
 			}
 		}
@@ -137,6 +143,7 @@ let pyoDesignPop = new function(){
 
 		markupTag.setAttribute('class', 'pyo-design-pop');
 		markupTag.setAttribute('id', assOpt.targetId);
+		markupTag.setAttribute('style', 'z-index:' + (90000 + document.querySelectorAll('.pyo-design-pop').length) );
 		markupTag.innerHTML = markupHtml;
 		document.body.appendChild(markupTag);
 	}

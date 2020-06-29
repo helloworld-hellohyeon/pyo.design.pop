@@ -109,6 +109,11 @@ since : 2020-06-26
   height: 50px;
   border: none;
   background-color: transparent;
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  -moz-transition: transform 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out, -moz-transform 0.3s ease-in-out;
 }
 
 .pyo-design-pop .pop-conents-wrap.basic .close-x i {
@@ -144,6 +149,16 @@ since : 2020-06-26
           transform: translate(-50%) rotate(45deg);
 }
 
+.pyo-design-pop .pop-conents-wrap.basic .close-x:hover, .pyo-design-pop .pop-conents-wrap.basic .close-x:focus {
+  -webkit-transform: rotate(180deg);
+     -moz-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.pyo-design-pop .pop-conents-wrap.basic .close-x:hover::before, .pyo-design-pop .pop-conents-wrap.basic .close-x:hover::after, .pyo-design-pop .pop-conents-wrap.basic .close-x:focus::before, .pyo-design-pop .pop-conents-wrap.basic .close-x:focus::after {
+  background-color: #1b4d8e;
+}
+
 .pyo-design-pop .pop-conents-wrap.basic .bt-wrap {
   margin-top: auto;
   padding: 5px;
@@ -171,4 +186,10 @@ since : 2020-06-26
 .pyo-design-pop .pop-conents-wrap.basic .bt-wrap > div button.blue {
   background-color: #1b4d8e;
   color: #fff;
+}
+
+.pyo-design-pop .pop-conents-wrap.basic .bt-wrap > div button:hover, .pyo-design-pop .pop-conents-wrap.basic .bt-wrap > div button:focus {
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+     -moz-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
 }

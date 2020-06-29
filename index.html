@@ -37,6 +37,7 @@
 	<button class="test-input" id="popBt8">버튼 콜백</button>
 	<button class="test-input" id="popBt9">레이아웃 변경</button>
 	<button class="test-input" id="popBt10">버튼 변경</button>
+	<button class="test-input" id="popBt11">팝업 remove</button>
 </div>
 <div id="main-container"></div>
 <div style="height:3000px;"></div>
@@ -54,6 +55,7 @@ let bt7 = document.querySelector('#popBt7');
 let bt8 = document.querySelector('#popBt8');
 let bt9 = document.querySelector('#popBt9');
 let bt10 = document.querySelector('#popBt10');
+let bt11 = document.querySelector('#popBt11');
 
 bt1.addEventListener('click', function(){
 	pyoDesignPop.openPop({
@@ -210,6 +212,15 @@ bt10.addEventListener('click', function(){
 		e.target.removeEventListener('click', pop10btEvent);
 	}
 	pop10bt.addEventListener('click', pop10btEvent);
+});
+
+
+bt11.addEventListener('click', function(){
+	pyoDesignPop.openPop({
+		targetId : 'pop11', // only id - id
+		remove : true, // false, true - remove
+		con : '팝업 삭제', // null, string - contents
+	});
 });
 
 

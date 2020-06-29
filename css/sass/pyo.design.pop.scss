@@ -77,6 +77,7 @@ $pointe-color-d1 : #1b4d8e;
 				height: 50px;
 				border: none;
 				background-color: transparent;
+				transition: transform 0.3s ease-in-out;
 				i{
 					overflow: hidden;
 					border: 0;
@@ -102,6 +103,14 @@ $pointe-color-d1 : #1b4d8e;
 				&::after{
 					transform: translate(-50%) rotate(45deg);
 				}
+				&:hover,
+				&:focus{
+					transform: rotate(180deg);
+					&::before,
+					&::after{
+						background-color: $pointe-color-d1;
+					}
+				}
 			}
 			.bt-wrap{
 				margin-top: auto;
@@ -118,6 +127,10 @@ $pointe-color-d1 : #1b4d8e;
 						&.blue{
 							background-color: $pointe-color-d1;
 							color: #fff;
+						}
+						&:hover,
+						&:focus{
+							box-shadow: 0 3px 5px rgba($color: #000, $alpha: 0.5);
 						}
 					}
 				}
