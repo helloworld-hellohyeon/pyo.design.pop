@@ -5,6 +5,7 @@ since : 2020-06-26
 */
 $border-color-d1 : #ddd;
 $pointe-color-d1 : #1b4d8e;
+$pointe-color-d2 : #b12828;
 
 .pyo-pop-open{
 	overflow: hidden;
@@ -108,7 +109,7 @@ $pointe-color-d1 : #1b4d8e;
 					transform: rotate(180deg);
 					&::before,
 					&::after{
-						background-color: $pointe-color-d1;
+						background-color: $pointe-color-d2;
 					}
 				}
 			}
